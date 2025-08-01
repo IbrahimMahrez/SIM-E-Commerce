@@ -3,14 +3,14 @@
 import nodemailer from "nodemailer"
 import { emailTemplate } from "./emailTemplate.js";
 
-// Create a test account or replace with real credentials.
+
 const transporter = nodemailer.createTransport({
  service:"gmail",
 
-  secure: false, // true for 465, false for other ports
+  secure: false, 
   auth: {
     user: "ibrahimmahrez726@gmail.com",
-    pass: "skhh cvjm jpbg wdbp", // must enable two step verification,=> app passwords=> create app password
+    pass: "skhh cvjm jpbg wdbp", 
   },
   tls:{
     rejectUnauthorized:false
@@ -23,8 +23,8 @@ const transporter = nodemailer.createTransport({
 
     to: email,
 
-    subject: "Welcome to SIM E-COM", // Subject line
-    text: "verify your email", // plain text body
+    subject: "Welcome to SIM E-COM", 
+    text: "verify your email", 
     html: emailTemplate(email), 
   });
 
