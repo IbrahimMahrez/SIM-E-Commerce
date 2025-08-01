@@ -41,6 +41,17 @@ This project allows users to browse products, add them to a cart, and purchase �
 📁 client/       # Angular Frontend
 📁 server/       # Node.js + Express Backend
 -----
-##📌 Author
-Ibrahim Mahrez
+## 📬 Contact
 
+- 💼 [LinkedIn](https://www.linkedin.com/in/ibrahim-mohamed-haraz-95114a2ab/)
+- 📧 ibrahimmahrez726@gmail.com  
+- 🌐 [Portfolio](https://ibrahimmahrez.github.io/ibrahim-protofilo/)
+
+---
+
+## 💡 Author
+
+Made with ❤️ by **Ibrahim Mahrez**  
+MEAN STACK Developer | Computer Science Student
+
+---
