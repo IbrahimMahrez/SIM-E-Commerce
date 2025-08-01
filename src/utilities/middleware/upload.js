@@ -1,10 +1,9 @@
 import multer from 'multer';
 import path from 'path';
 
-// مسار حفظ الصور
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // تأكد أن الفولدر ده موجود
+    cb(null, 'uploads/'); 
   },
   filename: (req, file, cb) => {
     const uniqueName = Date.now() + path.extname(file.originalname);
