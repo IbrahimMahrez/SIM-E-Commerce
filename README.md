@@ -34,13 +34,6 @@ This project allows users to browse products, add them to a cart, and purchase �
 | Version Control | Git + GitHub                |
 
 ---
-
-## 🏗️ Folder Structure
-
-```bash
-📁 client/       # Angular Frontend
-📁 server/       # Node.js + Express Backend
------
 ## 📬 Contact
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/ibrahim-mohamed-haraz-95114a2ab/)
@@ -55,3 +48,10 @@ Made with ❤️ by **Ibrahim Mahrez**
 MEAN STACK Developer | Computer Science Student
 
 ---
+
+## 🏗️ Folder Structure
+
+```bash
+📁 client/       # Angular Frontend
+📁 server/       # Node.js + Express Backend
+-----
