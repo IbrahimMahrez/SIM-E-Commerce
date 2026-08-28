@@ -1,4 +1,4 @@
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL;
 const authHeaders = (json = true) => ({ ...(json ? { 'Content-Type': 'application/json' } : {}), token: localStorage.getItem('token') || '' });
 
 async function request(path, options = {}) {
