@@ -1,29 +1,49 @@
-import express from 'express'
+import express from 'express';
 import cors from 'cors';
-import { dbConnection } from './db/dbConnection.js'
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dbConnection } from './db/dbConnection.js';
 import { userRouters } from './src/modules/user/user.routes.js';
 import { productRouters } from './src/modules/product/product.routes.js';
 import { cartRouters } from './src/modules/cart/cart.routes.js';
+import { orderRouters } from './src/modules/order/order.routes.js';
+import { wishlistRouters } from './src/modules/wishlist/wishlist.routes.js';
+import { couponRouters } from './src/modules/coupon/coupon.routes.js';
+import { aiRouters } from './src/modules/ai/ai.routes.js';
 import { errorHandler } from './src/utilities/middleware/errorHandler.js';
 
-
-
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
-app.use(express.json());
-app.use(cors())
-// Connect to DB
-dbConnection();
+const port = Number(process.env.PORT || 3000);
+const allowedOrigins = (process.env.CLIENT_ORIGINS || 'http://localhost:5173,http://127.0.0.1:5173').split(',').map((origin) => origin.trim());
 
-
-
-app.use(userRouters)
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error('This origin is not allowed by CORS'));
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'token', 'Authorization']
+}));
+app.use(express.json({ limit: '1mb' }));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.get('/health', (_req, res) => res.json({ success: true, message: 'SIM Store API is running' }));
+app.use(userRouters);
 app.use(productRouters);
-app.use(cartRouters)
-app.use('/uploads', express.static('uploads'));
-
+app.use(cartRouters);
+app.use(orderRouters);
+app.use(wishlistRouters);
+app.use(couponRouters);
+app.use(aiRouters);
+app.use((_req, res) => res.status(404).json({ message: 'Route not found' }));
 app.use(errorHandler);
 
+async function startServer() {
+  await dbConnection();
+  app.listen(port, () => console.log(`SIM Store API running on http://localhost:${port}`));
+}
 
-app.listen(3000, () => {
-  console.log(" Server running on http://localhost:3000");
+startServer().catch((error) => {
+  console.error('API failed to start:', error.message);
+  process.exit(1);
 });

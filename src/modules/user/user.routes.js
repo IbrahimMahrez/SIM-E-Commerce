@@ -1,31 +1,19 @@
+import express from 'express';
+import { addUserByAdmin, adminLogin, adminUpdateUser, deleteUser, deleteUserByAdmin, getAllUsers, getStoreConfig, getUserProfile, login, signup, updateStoreCategories, updateUser } from './user.controller.js';
+import { verifyToken } from '../../utilities/middleware/verfiyToken.js';
+import { verifyAdmin } from '../../utilities/middleware/verifyAdmin.js';
+import { verifyMerchant } from '../../utilities/middleware/verifyMerchant.js';
 
-import express from 'express'
-import { addUserByAdmin, adminLogin, adminUpdateUser, deleteUser, deleteUserByAdmin, getAllUsers, getUserProfile, login, signup, updateUser, verifyAccount } from './user.controller.js'
-import { checkEmail } from '../../utilities/middleware/checkEmail.js'
-import { verifyToken } from '../../utilities/middleware/verfiyToken.js'
-import { verifyAdmin } from '../../utilities/middleware/verifyAdmin.js'
-import { allowAdminOnly } from '../../utilities/middleware/allowAdminOnly.js'
-
-
-export const userRouters=express.Router()
-
-userRouters.use(express.json())
-
-
-// User routes
-userRouters.post('/signup',checkEmail,signup)
-userRouters.post('/login',login)
-userRouters.get('/user/verify/:email', verifyAccount)
-userRouters.get("/profile", verifyToken, getUserProfile);
+export const userRouters = express.Router();
+userRouters.post('/signup', signup);
+userRouters.post('/login', login);
+userRouters.post('/adminlog', adminLogin);
+userRouters.get('/store', getStoreConfig);
+userRouters.get('/profile', verifyToken, getUserProfile);
 userRouters.put('/update', verifyToken, updateUser);
+userRouters.put('/store/categories', verifyToken, verifyMerchant, updateStoreCategories);
 userRouters.delete('/delete', verifyToken, deleteUser);
-
-
-
-
-///admin routes
-userRouters.get('/user', verifyToken,getAllUsers)
-userRouters.post('/adminLog', adminLogin)
+userRouters.get('/user', verifyToken, verifyAdmin, getAllUsers);
+userRouters.post('/admin/adduser', verifyToken, verifyAdmin, addUserByAdmin);
+userRouters.put('/admin/update/:id', verifyToken, verifyAdmin, adminUpdateUser);
 userRouters.delete('/admin/delete/:id', verifyToken, verifyAdmin, deleteUserByAdmin);
-userRouters.put('/admin/update/:id', verifyToken, adminUpdateUser);
-userRouters.post('/admin/adduser', verifyToken, allowAdminOnly, addUserByAdmin);

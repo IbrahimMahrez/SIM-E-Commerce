@@ -1,0 +1,6 @@
+import { wishlistModel } from '../../../db/modules/wishlist.model.js';
+import { productModel } from '../../../db/modules/product.model.js';
+
+const response = async (userId) => { const list = await wishlistModel.findOne({ userId }).populate({ path: 'products', options: { sort: { createdAt: -1 } } }); return { products: (list?.products || []).filter(Boolean) }; };
+export const getWishlist = async (req, res, next) => { try { res.json(await response(req.decoded._id)); } catch (error) { next(error); } };
+export const toggleWishlist = async (req, res, next) => { try { const product = await productModel.findOne({ id: req.body.id }); if (!product) return res.status(404).json({ message: 'Product not found' }); let list = await wishlistModel.findOne({ userId: req.decoded._id }); if (!list) list = new wishlistModel({ userId: req.decoded._id, products: [] }); const index = list.products.findIndex((item) => item.equals(product._id)); const saved = index === -1; if (saved) list.products.push(product._id); else list.products.splice(index, 1); await list.save(); res.json({ message: saved ? 'Saved to wishlist' : 'Removed from wishlist', saved, ...(await response(req.decoded._id)) }); } catch (error) { next(error); } };
