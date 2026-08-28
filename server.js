@@ -30,50 +30,49 @@ const allowedOrigins = (
   .map((origin) => origin.trim())
   .filter(Boolean);
 
-// CORS
 app.use(
   cors({
     origin(origin, callback) {
-      // Allow requests without an Origin header
-      if (!origin) {
+      if (!origin || allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
 
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      return callback(new Error(`CORS blocked origin: ${origin}`));
+      return callback(
+        new Error(`CORS blocked origin: ${origin}`)
+      );
     },
 
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    methods: [
+      'GET',
+      'POST',
+      'PUT',
+      'PATCH',
+      'DELETE',
+      'OPTIONS'
+    ],
 
     allowedHeaders: [
       'Content-Type',
       'token',
-      'Authorization',
-    ],
+      'Authorization'
+    ]
   })
 );
 
-// Body parser
 app.use(express.json({ limit: '1mb' }));
 
-// Static uploads
 app.use(
   '/uploads',
   express.static(path.join(__dirname, 'uploads'))
 );
 
-// Health check
 app.get('/health', (_req, res) => {
   res.status(200).json({
     success: true,
-    message: 'SIM Store API is running',
+    message: 'SIM Store API is running'
   });
 });
 
-// Routes
 app.use(userRouters);
 app.use(productRouters);
 app.use(cartRouters);
@@ -82,38 +81,31 @@ app.use(wishlistRouters);
 app.use(couponRouters);
 app.use(aiRouters);
 
-// 404
 app.use((_req, res) => {
   res.status(404).json({
     success: false,
-    message: 'Route not found',
+    message: 'Route not found'
   });
 });
 
-// Error handler
 app.use(errorHandler);
 
-// Start server
-async function startServer() {
-  try {
-    console.log('Starting SIM Store API...');
-    console.log(`PORT: ${port}`);
+// افتح الـ PORT الأول
+const server = app.listen(port, '0.0.0.0', () => {
+  console.log(`SIM Store API running on port ${port}`);
 
-    // Connect to MongoDB first
-    await dbConnection();
-
-    console.log('MongoDB connected successfully');
-
-    // Listen on Render/Railway/etc. assigned port
-    app.listen(port, '0.0.0.0', () => {
-      console.log(`SIM Store API is running on port ${port}`);
+  // بعد فتح الـ PORT اتصل بـ MongoDB
+  dbConnection()
+    .then(() => {
+      console.log('MongoDB connected successfully');
+    })
+    .catch((error) => {
+      console.error('MongoDB connection failed:');
+      console.error(error.message);
     });
-  } catch (error) {
-    console.error('API failed to start.');
-    console.error(error);
+});
 
-    process.exit(1);
-  }
-}
-
-startServer();
+// لو السيرفر نفسه حصل فيه error
+server.on('error', (error) => {
+  console.error('Server error:', error);
+});
