@@ -1,0 +1,12 @@
+.auth-page { min-height: calc(100vh - 56px); padding: 48px 16px; background: radial-gradient(circle at 50% 0, rgba(209,255,77,.13), transparent 35%), #090909; }
+.auth-card { width: min(100%, 460px); padding: 40px; background: #151515; border: 1px solid #343434; border-radius: 22px; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+.auth-brand { color: #d1ff4d; font-size: 1.05rem; font-weight: 800; letter-spacing: .08em; }
+.auth-brand i { font-size: 1.5rem; margin-right: 8px; }
+.auth-card h1 { margin: 28px 0 8px; color: #fff; font-size: 2rem; }
+.auth-card p { color: #aaa; }.auth-card label { display:block; margin:20px 0 7px; color:#d8d8d8; font-size:.9rem; }
+.auth-card .form-control { min-height: 48px; border-radius: 10px; background: #202020; }.auth-card .form-control:focus { border-color:#d1ff4d; box-shadow:0 0 0 3px rgba(209,255,77,.12); }
+.auth-submit { width:100%; margin-top:28px; padding:13px; border:0; border-radius:10px; background:#d1ff4d; color:#111; font-weight:800; transition:.2s ease; }.auth-submit:hover { background:#e0ff7e; transform:translateY(-1px); }
+.auth-switch { margin:24px 0 0; text-align:center; }.auth-switch a { color:#d1ff4d; font-weight:bold; text-decoration:none; }
+@media (max-width:480px) { .auth-card { padding:28px 22px; border-radius:16px; } }
+.signup-category-list { display:flex; flex-wrap:wrap; gap:7px; margin-top:8px; }.signup-category-list button { border:1px solid #444; border-radius:20px; padding:6px 10px; background:#202020; color:#ddd; font-size:.78rem; }.signup-category-list button.selected { background:#d1ff4d; border-color:#d1ff4d; color:#111; font-weight:700; }
+ .account-type-picker{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.account-type-picker button{display:grid;gap:5px;text-align:left;border:1px solid #3a3a3a;border-radius:10px;padding:13px;background:#151515;color:#fff}.account-type-picker button i{color:#d1ff4d;font-size:1.25rem}.account-type-picker button small{color:#979797;font-size:.7rem}.account-type-picker button.selected{border-color:#d1ff4d;background:#202b16;box-shadow:0 0 0 1px rgba(209,255,77,.2)}@media(max-width:420px){.account-type-picker{grid-template-columns:1fr}}

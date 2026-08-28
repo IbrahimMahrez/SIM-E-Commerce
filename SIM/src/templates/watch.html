@@ -1,0 +1,170 @@
+<section class="watch-hero-section">
+  <video autoplay muted loop playsinline class="w-100 watch-video">
+    <source src="/imgs/wathc video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="watch-hero-overlay text-center">
+    <h1 class="display-4 fw-bold">
+      Discover the New <span class="highlight-watch">Apple Watch</span>
+    </h1>
+    <p class="lead text-light">Your ultimate fitness partner – now even smarter.</p>
+  </div>
+</section>
+
+
+<section class="why-watch-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Why Choose <span class="highlight-watch">Apple Watch</span>?
+    </h2>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="watch-card text-center">
+          <i class="bi bi-heart-pulse-fill watch-icon mb-3"></i>
+          <h5 class="text-light">Health Monitoring</h5>
+          <p class="text-secondary">Track heart rate, ECG, sleep, and blood oxygen levels in real-time.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="watch-card text-center">
+          <i class="bi bi-watch watch-icon mb-3"></i>
+          <h5 class="text-light">Elegant Design</h5>
+          <p class="text-secondary">Crafted with premium materials, fits every lifestyle and outfit.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="watch-card text-center">
+          <i class="bi bi-battery-charging watch-icon mb-3"></i>
+          <h5 class="text-light">All-Day Battery</h5>
+          <p class="text-secondary">Long-lasting battery for busy days and active workouts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="watch-products-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Discover Our <span class="highlight-watch">Apple Watch</span> Collection
+    </h2>
+
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let product of watchProducts">
+        <div class="product-card text-center p-4 rounded">
+          <img [src]="'http://localhost:3000/uploads/' + product.image" alt="{{product.title}}" class="product-image mb-3" />
+
+          <h4 class="text-light">ID: {{ product.id }}</h4>
+          <h4 class="text-light">{{ product.title }}</h4>
+          <p class="text-warning fw-bold mb-1">{{ product.price }} USD</p>
+          <p class="text-secondary">{{ product.description }}</p>
+
+          <p class="text-info">Quantity Available: {{ product.quantity }}</p>
+
+          <p *ngIf="product.isAvailable; else notAvailable" class="text-success fw-bold">Available</p>
+          <ng-template #notAvailable>
+            <p class="text-danger fw-bold">Out of Stock</p>
+          </ng-template>
+
+         <button class="btn btn-primary" (click)="addToCart(product.id)">
+        <i class="bi bi-cart-plus"></i> Add to Cart
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="watch-compare-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Which <span class="highlight-watch">Apple Watch</span> fits your style?
+    </h2>
+
+    <div class="row text-center mb-5">
+      <div class="col-md-6">
+        <img src="/imgs/watch 1.png" class="img-fluid compare-img mb-2" alt="Watch S10" />
+        <h6 class="text-light">Apple Watch Series 10</h6>
+      </div>
+      <div class="col-md-6">
+        <img src="/imgs/watch2.png" class="img-fluid compare-img mb-2" alt="Watch SE" />
+        <h6 class="text-light">Apple Watch SE</h6>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered text-center custom-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="model-name">Series 10</th>
+            <th class="model-name">SE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chip</td>
+            <td>S10 SiP</td>
+            <td>S8 SiP</td>
+          </tr>
+          <tr>
+            <td>Display</td>
+            <td>Always-On Retina</td>
+            <td>Retina</td>
+          </tr>
+          <tr>
+            <td>Health Sensors</td>
+            <td>ECG, Blood Oxygen, Heart Rate</td>
+            <td>Heart Rate</td>
+          </tr>
+          <tr>
+            <td>Water Resistance</td>
+            <td>WR100, Dive certified</td>
+            <td>WR50</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>$499</td>
+            <td>$249</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<section class="why-watch10-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Why <span class="highlight-watch">Apple Watch Series 10</span>?
+    </h2>
+
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0 text-center">
+        <img src="/imgs/s100.jpg" alt="Watch S10" class="img-fluid feature-img" />
+      </div>
+
+      <div class="col-md-6">
+        <ul class="list-unstyled fs-5 text-light">
+          <li><i class="bi bi-check-circle-fill feature-icon me-2"></i> Advanced ECG & Blood Oxygen Monitoring</li>
+          <li><i class="bi bi-check-circle-fill feature-icon me-2"></i> Always-On Retina Display with Thin Bezels</li>
+          <li><i class="bi bi-check-circle-fill feature-icon me-2"></i> Up to 36 Hours Battery Life</li>
+          <li><i class="bi bi-check-circle-fill feature-icon me-2"></i> Premium Titanium Design</li>
+          <li><i class="bi bi-check-circle-fill feature-icon me-2"></i> Compatible with All Your Apple Devices</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="watch-cta-section py-5 text-center">
+  <div class="container">
+    <h2 class="text-light mb-3">Ready to Upgrade Your Wrist Game?</h2>
+    <p class="lead text-secondary mb-4">Join the iWatch Family and experience innovation on your wrist.</p>
+    <a href="watch" class="btn cta-btn">Shop Apple Watch Now</a>
+  </div>
+</section>

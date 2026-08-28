@@ -1,0 +1,252 @@
+:host {
+  display: block;
+  background-color: rgb(6, 5, 5);
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+   margin: 0;
+  padding: 0;
+}
+
+
+.ipad-hero-section {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.ipad-hero-video {
+  object-fit: cover;
+  height: 100%;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.highlight-ipad {
+  color: #D1FF4D;
+}
+
+.why-ipad-icons {
+  background-color: #1a1a1a; /* أسود فاتح ثابت */
+  padding: 60px 0;
+}
+
+.highlight-ipad {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.why-card {
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  padding: 30px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(209, 255, 77, 0.15);
+}
+
+.icon-style {
+  font-size: 2.7rem;
+  color: #D1FF4D;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-style:hover {
+  transform: scale(1.2);
+  color: #e4ff66;
+}
+
+
+
+.ipad-products-section {
+  background-color: #0d0d0d9c;
+}
+
+.highlight-ipad {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.product-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 30px 20px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.product-card:hover {
+  border-color: #D1FF4D;
+  box-shadow: 0 0 20px rgba(209, 255, 77, 0.2);
+  transform: translateY(-5px);
+}
+
+.product-image {
+  height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-price {
+  color: #D1FF4D;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.buy-btn {
+  background-color: #D1FF4D;
+  color: #000;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.buy-btn:hover {
+  background-color: #c3f638;
+}
+
+
+/*compare*/
+.ipad-compare-section {
+  background-color: #1a1a1a;
+  color: #ddd;
+}
+
+.compare-img {
+  height: 180px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.compare-img:hover {
+  transform: scale(1.05);
+}
+
+.highlight-ipad {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.model-name {
+  color: #D1FF4D;
+  font-weight: 600;
+}
+
+.custom-table {
+  background-color: #1c1c1c !important;
+  color: #ccc;
+  border-collapse: collapse;
+}
+
+.custom-table thead {
+  background-color: #222 !important;
+}
+
+.custom-table th,
+.custom-table td {
+  color: #eee;
+  border: 1px solid #333;
+  padding: 14px;
+  background-color: #1c1c1c !important;
+}
+
+.price {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #2a2a2a !important;
+  box-shadow: 0 0 10px rgba(209, 255, 77, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+
+
+/**/
+
+.why-ipad-list {
+  background-color: #111;
+}
+
+.highlight-ipad {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.ipad-why-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(209, 255, 77, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.ipad-why-img:hover {
+  transform: scale(1.02);
+}
+
+.icon-check {
+  color: #D1FF4D;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+li:hover .icon-check {
+  transform: scale(1.2);
+  text-shadow: 0 0 8px rgba(209, 255, 77, 0.5);
+}
+
+li {
+  line-height: 1.8;
+}
+
+
+
+/**/
+
+
+.ipad-cta-section {
+  background-color: #000;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+
+.ipad-cta-btn {
+  background-color: #D1FF4D;
+  color: #000;
+  font-weight: bold;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ipad-cta-btn:hover {
+  background-color: #c6fb3d;
+  transform: scale(1.05);
+}
+
+.highlight-ipad {
+  color: #D1FF4D;
+  font-weight: bold;
+}

@@ -1,0 +1,210 @@
+<section class="ipad-hero-section">
+  <video autoplay muted loop class="w-100 ipad-hero-video">
+    <source src="/imgs/ipad video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay-content text-center">
+    <h1 class="display-4 text-gary fw-bold">
+      Discover the New <span class="highlight-ipad">iPad</span>
+    </h1>
+    <p class="text-light fs-5">Power meets elegance in every touch.</p>
+  </div>
+</section>
+
+
+<section class="why-ipad-icons py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Why <span class="highlight-ipad">Choose iPad</span>?
+    </h2>
+
+    <div class="row text-center g-4">
+      <div class="col-md-4">
+        <div class="why-card p-4 rounded shadow-sm h-100">
+          <i class="bi bi-lightning-charge-fill icon-style mb-3"></i>
+          <h5 class="text-light">M-Series Performance</h5>
+          <p class="text-gary">Enjoy blazing speed and power with Apple Silicon.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="why-card p-4 rounded shadow-sm h-100">
+          <i class="bi bi-pencil-fill icon-style mb-3"></i>
+          <h5 class="text-light">Apple Pencil Support</h5>
+          <p class="text-gary">Sketch, write, and design with unmatched precision.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="why-card p-4 rounded shadow-sm h-100">
+          <i class="bi bi-display-fill icon-style mb-3"></i>
+          <h5 class="text-light">Retina Display</h5>
+          <p class="text-gary">Stunning visuals for media, work, and creativity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="ipad-products-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Explore Our <span class="highlight-ipad">iPad</span> Products
+    </h2>
+
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let product of ipadProducts">
+        <div class="product-card text-center">
+          <img [src]="'http://localhost:3000/uploads/' + product.image" class="product-image mb-3" alt="{{product.title}}" />
+
+          <h4 class="text-light">{{ product.title }}</h4>
+
+          <p class="text-light small">ID: {{ product.id }}</p>
+
+          <p class="text-warning fw-bold mb-1">{{ product.price }} USD</p>
+
+          <p class="text-secondary">{{ product.description }}</p>
+
+          <p class="text-info">Available Quantity: {{ product.quantity }}</p>
+
+          <p *ngIf="product.isAvailable; else notAvailable" class="text-success fw-bold">Available</p>
+          <ng-template #notAvailable>
+            <p class="text-danger fw-bold">Out of Stock</p>
+          </ng-template>
+
+         <button class="btn btn-primary" (click)="addToCart(product.id)">
+        <i class="bi bi-cart-plus"></i> Add to Cart
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="ipad-compare-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Which <span class="highlight-ipad">iPad</span> is right for you?
+    </h2>
+
+    <div class="row text-center mb-5">
+      <div class="col-md-3">
+        <img src="/imgs/ipad_pro.png" class="img-fluid compare-img mb-2" alt="iPad Pro" />
+        <h6 class="text-light">iPad Pro</h6>
+      </div>
+      <div class="col-md-3">
+        <img src="/imgs/ipad_air.png" class="img-fluid compare-img mb-2" alt="iPad Air" />
+        <h6 class="text-light">iPad Air</h6>
+      </div>
+      <div class="col-md-3">
+        <img src="/imgs/ipad_11.png" class="img-fluid compare-img mb-2" alt="iPad" />
+        <h6 class="text-light">iPad</h6>
+      </div>
+      <div class="col-md-3">
+        <img src="/imgs/ipad_mini.png" class="img-fluid compare-img mb-2" alt="iPad Mini" />
+        <h6 class="text-light">iPad Mini</h6>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered text-center custom-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="model-name">Pro</th>
+            <th class="model-name">Air</th>
+            <th class="model-name">iPad</th>
+            <th class="model-name">Mini</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chip</td>
+            <td>M4</td>
+            <td>M2</td>
+            <td>A14</td>
+            <td>A15</td>
+          </tr>
+          <tr>
+            <td>Display</td>
+            <td>12.9” XDR</td>
+            <td>10.9” Liquid Retina</td>
+            <td>10.2” Retina</td>
+            <td>8.3” Liquid Retina</td>
+          </tr>
+          <tr>
+            <td>Apple Pencil</td>
+            <td>2nd Gen</td>
+            <td>2nd Gen</td>
+            <td>1st Gen</td>
+            <td>2nd Gen</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>$1,299</td>
+            <td>$899</td>
+            <td>$449</td>
+            <td>$599</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<section class="why-ipad-list py-5">
+  <div class="container text-center">
+    <h2 class="text-light mb-4">
+      Why Choose <span class="highlight-ipad">iPad</span>?
+    </h2>
+
+    <img src="/imgs/ipad_large_2x.jpg" alt="Why iPad" class="img-fluid ipad-why-img mb-5" />
+
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-start">
+        <ul class="list-unstyled fs-5 text-light">
+          <li class="mb-3">
+            <i class="bi bi-check-circle-fill me-2 icon-check"></i>
+            Ultra-powerful M-series chips for top-tier performance
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-check-circle-fill me-2 icon-check"></i>
+            Best-in-class Apple Pencil support for creativity & productivity
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-check-circle-fill me-2 icon-check"></i>
+            Long battery life and stunning Liquid Retina displays
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-check-circle-fill me-2 icon-check"></i>
+            100% Genuine Apple Products & fast delivery
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-check-circle-fill me-2 icon-check"></i>
+            24/7 technical support and flexible payment options
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="ipad-cta-section py-5 text-center">
+  <div class="container">
+    <h2 class="text-light mb-3">
+      Ready to upgrade with <span class="highlight-ipad">iPad</span>?
+    </h2>
+    <p class="lead text-secondary mb-4">
+      Discover the power, design, and versatility of the iPad lineup.
+      Find your perfect match today!
+    </p>
+    <a href="/ipad" class="btn btn-lg ipad-cta-btn">
+      Shop Now</a>
+
+  </div>
+</section>

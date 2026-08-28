@@ -1,0 +1,219 @@
+<section class="iphone-hero-section">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="/imgs/iphone video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="hero-content text-center">
+    <h1 class="iphone-title">iPhone</h1>
+    <p class="iphone-tagline">Experience the future of technology in your hand.</p>
+  </div>
+</section>
+
+
+<section class="iphone-features-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 text-light">
+  Why Choose <span class="highlight-iphone">iPhone</span>?
+</h2>
+
+    <div class="row g-4">
+      <div class="col-md-4 text-center">
+        <i class="bi bi-cpu-fill feature-icon"></i>
+        <h4 class="text-light mt-3">A17 Bionic Chip</h4>
+        <p class="text-secondary">Unmatched speed and power efficiency in every task you do.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-camera2 feature-icon"></i>
+        <h4 class="text-light mt-3">Pro Camera System</h4>
+        <p class="text-secondary">Capture life in stunning detail, even in low light.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-battery-charging feature-icon"></i>
+        <h4 class="text-light mt-3">All-day Battery</h4>
+        <p class="text-secondary">Stay unplugged longer with smarter battery life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="iphone-products-section py-5">
+
+
+   <section class="iphone-products-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Explore Our <span class="highlight-iphone">iPhone</span> Products
+    </h2>
+
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let product of iphoneProducts">
+        <div class="product-card text-center">
+          <img [src]="'http://localhost:3000/uploads/' + product.image" class="product-image mb-3" alt="{{product.title}}" />
+
+          <h4 class="text-light">{{ product.title }}</h4>
+
+          <p class="text-light small">ID: {{ product.id }}</p>
+
+          <p class="text-warning fw-bold mb-1">{{ product.price }} USD</p>
+
+          <p class="text-secondary">{{ product.description }}</p>
+
+          <p class="text-info">Available Quantity: {{ product.quantity }}</p>
+
+          <p *ngIf="product.isAvailable; else notAvailable" class="text-success fw-bold">Available</p>
+          <ng-template #notAvailable>
+            <p class="text-danger fw-bold">Out of Stock</p>
+          </ng-template>
+
+       <button class="btn btn-primary" (click)="addToCart(product.id)">
+        <i class="bi bi-cart-plus"></i> Add to Cart
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="iphone-compare-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Which <span class="highlight-iphone">iPhone</span> is right for you?
+    </h2>
+
+    <div class="row text-center mb-5">
+      <div class="col-md-3">
+        <img src="/imgs/iphone_16_.png" class="img-fluid compare-img mb-2" alt="iPhone 16 Pro Max" />
+        <h6 class="model-name">16 Pro Max</h6>
+      </div>
+      <div class="col-md-3">
+        <img src="/imgs/iphone_16pro.png" class="img-fluid compare-img mb-2" alt="iPhone 16 Pro" />
+        <h6 class="model-name">16 Pro</h6>
+      </div>
+      <div class="col-md-3">
+        <img src="/imgs/iphone_15.png" class="img-fluid compare-img mb-2" alt="iPhone 15" />
+        <h6 class="model-name">iPhone 15</h6>
+      </div>
+      <div class="col-md-3">
+        <img src="/imgs/iphone_16.png" class="img-fluid compare-img mb-2" alt="iPhone 16 SE" />
+        <h6 class="model-name">16 SE</h6>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered text-center custom-table ">
+        <thead>
+          <tr>
+            <th class="text-light">Feature</th>
+            <th class="model-name">16 Pro Max</th>
+            <th class="model-name">16 Pro</th>
+            <th class="model-name">15</th>
+            <th class="model-name">16 SE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chip</td>
+            <td>A18 Pro</td>
+            <td>A18</td>
+            <td>A16</td>
+            <td>A16</td>
+          </tr>
+          <tr>
+            <td>Camera</td>
+            <td>Triple 48MP</td>
+            <td>Triple 48MP</td>
+            <td>Dual 48MP</td>
+            <td>Single 12MP</td>
+          </tr>
+          <tr>
+            <td>Battery Life</td>
+            <td>32 hours</td>
+            <td>28 hours</td>
+            <td>20 hours</td>
+            <td>17 hours</td>
+          </tr>
+          <tr>
+            <td>Display</td>
+            <td>6.9" LTPO OLED</td>
+            <td>6.7" OLED</td>
+            <td>6.1" OLED</td>
+            <td>4.7" LCD</td>
+          </tr>
+          <tr>
+            <td class="text-light fw-bold">Price</td>
+            <td class="price">$1,899</td>
+            <td class="price">$1,599</td>
+            <td class="price">$999</td>
+            <td class="price">$649</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="why-choose-us py-5">
+  <div class="container text-center">
+
+    <h2 class="text-light mb-4">
+      Why <span class="highlight-iphone">Choose Us</span>?
+    </h2>
+
+
+    <img src="/imgs/hero_endframe__dtznvlokjeeu_xlarge_2x.png" alt="Why iPhone" class="why-img mb-4 img-fluid rounded shadow" />
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <ul class="why-list list-unstyled text-light fs-5 text-start">
+      <li>
+        <i class="bi bi-check-circle-fill me-2 check-icon"></i>
+        100% Authentic Apple Products
+      </li>
+      <li>
+        <i class="bi bi-check-circle-fill me-2 check-icon"></i>
+        Secure Payment & Installment Plans
+      </li>
+      <li>
+        <i class="bi bi-check-circle-fill me-2 check-icon"></i>
+        Fast & Reliable Delivery
+      </li>
+      <li>
+        <i class="bi bi-check-circle-fill me-2 check-icon"></i>
+        24/7 Technical Support
+      </li>
+      <li>
+        <i class="bi bi-check-circle-fill me-2 check-icon"></i>
+        Exclusive Deals & Gifts
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+
+
+
+<section class="cta-section text-center py-5">
+  <div class="container">
+    <h2 class="cta-title mb-3">
+      Ready to <span class="highlight-iphone">Own the Future?</span>
+    </h2>
+    <p class="text-light fs-5 mb-4">
+      Explore the latest iPhones and get exclusive deals only at our store.
+    </p>
+    <a href="/iphone" class="btn btn-cta me-3">Shop Now</a>
+
+  </div>
+</section>

@@ -1,0 +1,230 @@
+:host {
+  display: block;
+  background-color: rgb(6, 5, 5);
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+   margin: 0;
+  padding: 0;
+}
+
+.mac-hero-section {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.mac-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.overlay-content {
+  position: relative;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 20px;
+}
+
+.highlight-mac {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+
+
+.why-mac-icons-section {
+  background-color: #1a1a1a;
+}
+
+.highlight-mac {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.icon-box {
+  background-color: #111;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #2a2a2a;
+}
+
+.icon-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 12px rgba(209, 255, 77, 0.25);
+}
+
+.icon-style {
+  font-size: 3rem;
+  color: #D1FF4D;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.icon-box:hover .icon-style {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px rgba(209, 255, 77, 0.5);
+}
+
+
+.mac-products-section {
+  background-color: #0f0f0f;
+}
+
+.highlight-mac {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.product-card {
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(209, 255, 77, 0.25);
+}
+
+.product-image {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.price {
+  color: #D1FF4D;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.buy-btn {
+  background-color: #D1FF4D;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+  background-color: #c6fb3d;
+}
+
+
+
+
+
+/**/
+
+.mac-compare-section {
+  background-color: #1a1a1a;
+  color: #ccc;
+}
+
+.highlight-mac {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.compare-img {
+  height: 200px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.compare-img:hover {
+  transform: scale(1.05);
+}
+
+.model-name {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.custom-table {
+  background-color: #1c1c1c;
+  color: #eee;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #333;
+  padding: 14px;
+  color: #ccc;
+  background-color: #1c1c1c;
+}
+
+.custom-table thead {
+  background-color: #222;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #2a2a2a;
+  box-shadow: 0 0 10px rgba(209, 255, 77, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+/**/
+
+.why-mac-section {
+  background-color: #000000;
+}
+
+.highlight-mac {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.check-icon {
+  color: #D1FF4D;
+  font-size: 1.3rem;
+}
+
+.mac-feature-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mac-feature-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(209, 255, 77, 0.2);
+}
+
+
+.mac-cta-section {
+  background-color: #121212;
+  padding: 80px 20px;
+}
+
+.highlight-mac {
+  color: #D1FF4D;
+}
+
+.cta-btn {
+  background-color: #D1FF4D;
+  color: #000;
+  border: none;
+  padding: 14px 34px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #c9ff33;
+  transform: scale(1.05);
+}

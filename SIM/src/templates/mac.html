@@ -1,0 +1,177 @@
+<section class="mac-hero-section">
+  <video autoplay muted loop class="mac-hero-video">
+    <source src="/imgs/video mac.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="overlay-content text-center text-light">
+    <h1 class="display-4">
+      <span class="highlight-mac">Mac</span> – Power Meets Elegance
+    </h1>
+    <p class="lead">Experience professional-grade performance in a sleek, elegant design.</p>
+  </div>
+</section>
+
+
+<section class="why-mac-icons-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Why Choose <span class="highlight-mac">Mac</span>?
+    </h2>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="icon-box p-4 rounded">
+          <i class="bi bi-cpu icon-style mb-3"></i>
+          <h5 class="text-light">Powerful Performance</h5>
+          <p class="text-secondary">Mac delivers unbeatable speed with Apple silicon chips.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-box p-4 rounded">
+          <i class="bi bi-display icon-style mb-3"></i>
+          <h5 class="text-light">Retina Display</h5>
+          <p class="text-secondary">Enjoy vibrant, color-accurate displays ideal for creators.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-box p-4 rounded">
+          <i class="bi bi-shield-lock icon-style mb-3"></i>
+          <h5 class="text-light">Secure & Seamless</h5>
+          <p class="text-secondary">macOS is secure, smooth, and integrates perfectly with your iPhone.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="mac-products-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Explore Our <span class="highlight-mac">Mac</span> Products
+    </h2>
+
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let product of macProducts">
+        <div class="product-card text-center p-4 rounded">
+          <img [src]="'http://localhost:3000/uploads/' + product.image" alt="{{product.title}}" class="product-image mb-3" />
+
+          <h4 class="text-light">ID: {{ product.id }}</h4>
+          <h4 class="text-light">{{ product.title }}</h4>
+          <p class="text-warning fw-bold mb-1">{{ product.price }} USD</p>
+          <p class="text-secondary">{{ product.description }}</p>
+
+          <p class="text-info">Quantity Available: {{ product.quantity }}</p>
+
+          <p *ngIf="product.isAvailable; else notAvailable" class="text-success fw-bold">Available</p>
+          <ng-template #notAvailable>
+            <p class="text-danger fw-bold">Out of Stock</p>
+          </ng-template>
+
+        <button class="btn btn-primary" (click)="addToCart(product.id)">
+        <i class="bi bi-cart-plus"></i> Add to Cart
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="mac-compare-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      MacBook <span class="highlight-mac">Pro</span> vs <span class="highlight-mac">Air</span>
+    </h2>
+
+    <div class="row text-center mb-4">
+      <div class="col-md-6">
+        <img src="/imgs/mba_13.png" class="img-fluid compare-img mb-2" alt="MacBook Pro" />
+        <h5 class="text-light">MacBook Pro</h5>
+      </div>
+      <div class="col-md-6">
+        <img src="/imgs/mbp_14.png" class="img-fluid compare-img mb-2" alt="MacBook Air" />
+        <h5 class="text-light">MacBook Air</h5>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered text-center custom-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="model-name">MacBook Pro</th>
+            <th class="model-name">MacBook Air</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chip</td>
+            <td>M3 Pro / Max</td>
+            <td>M2</td>
+          </tr>
+          <tr>
+            <td>Display</td>
+            <td>14" / 16" Liquid Retina XDR</td>
+            <td>13.6" Retina</td>
+          </tr>
+          <tr>
+            <td>Battery Life</td>
+            <td>Up to 22 hours</td>
+            <td>Up to 18 hours</td>
+          </tr>
+          <tr>
+            <td>Weight</td>
+            <td>1.6 – 2.1 kg</td>
+            <td>1.24 kg</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>$2,199</td>
+            <td>$1,099</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="why-mac-section py-5">
+  <div class="container">
+    <h2 class="text-center text-light mb-5">
+      Why Choose <span class="highlight-mac">Mac</span>?
+    </h2>
+
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <ul class="list-unstyled text-light fs-5">
+          <li><i class="bi bi-check-circle-fill me-2 check-icon"></i> Blazing-fast performance with M3 chips</li>
+          <li><i class="bi bi-check-circle-fill me-2 check-icon"></i> Long-lasting battery life</li>
+          <li><i class="bi bi-check-circle-fill me-2 check-icon"></i> Sleek and durable design</li>
+          <li><i class="bi bi-check-circle-fill me-2 check-icon"></i> macOS ecosystem and seamless integration</li>
+          <li><i class="bi bi-check-circle-fill me-2 check-icon"></i> Top-tier security and privacy</li>
+        </ul>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="/imgs/macccc.jpg" alt="Why Mac" class="img-fluid mac-feature-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="mac-cta-section text-center py-5">
+  <div class="container">
+    <h2 class="display-5 fw-bold text-light mb-4">
+      Ready to <span class="highlight-mac">Upgrade</span> Your World?
+    </h2>
+    <p class="text-secondary fs-5 mb-4">Join thousands who trust Apple Mac for performance, reliability, and innovation.</p>
+    <a href="mac" class="btn btn-lg cta-btn">Shop Now</a>
+  </div>
+</section>

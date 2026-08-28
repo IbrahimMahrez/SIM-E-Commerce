@@ -1,0 +1,238 @@
+:host {
+  display: block;
+  background-color: rgb(6, 5, 5);
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+   margin: 0;
+  padding: 0;
+}
+
+.iphone-hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 2;
+}
+
+.iphone-title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #D1FF4D; /* فسفوري */
+  margin-bottom: 10px;
+}
+
+.iphone-tagline {
+  font-size: 1.5rem;
+  color: #eee;
+}
+
+
+.iphone-features-section {
+  background-color: #1a1a1a;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: #D1FF4D; /* فسفوري */
+  transition: transform 0.3s ease;
+}
+
+.feature-icon:hover {
+  transform: scale(1.2);
+  color: #caff33;
+}
+
+h2 {
+  font-weight: bold;
+}
+.highlight-iphone {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+
+.iphone-products-section {
+  background-color: #111; /* أسود غامق */
+}
+
+.product-card {
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(209, 255, 77, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}
+
+.buy-btn {
+  background-color: #D1FF4D;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.buy-btn:hover {
+  background-color: #caff33;
+}
+
+.highlight-iphone {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+
+.iphone-compare-section {
+  background-color: #121212;
+}
+
+.compare-img {
+  height: 180px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.compare-img:hover {
+  transform: scale(1.05);
+}
+
+.highlight-iphone {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+
+
+.iphone-compare-section {
+  background-color: #1a1a1a;
+  color: #ddd;
+}
+
+.compare-img {
+  height: 180px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.compare-img:hover {
+  transform: scale(1.05);
+}
+
+.model-name {
+  color: #D1FF4D;
+  font-weight: 600;
+}
+
+.custom-table {
+  background-color: #1c1c1c !important;
+  color: #ccc;
+  border-collapse: collapse;
+}
+
+.custom-table thead {
+  background-color: #222 !important;
+}
+
+.custom-table th,
+.custom-table td {
+  color: #eee;
+  border: 1px solid #333;
+  padding: 14px;
+  background-color: #1c1c1c !important;
+}
+
+.price {
+  color: #D1FF4D;
+  font-weight: bold;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #2a2a2a !important;
+  box-shadow: 0 0 10px rgba(209, 255, 77, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+
+
+
+/* لون الأيقونة فسفوري + تأثير هفر */
+.check-icon {
+  color: #D1FF4D;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* تأثير عند تمرير الماوس */
+.why-list li {
+  margin-bottom: 16px;
+  position: relative;
+  padding-left: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.why-list li:hover {
+  background-color: rgba(209, 255, 77, 0.05);
+  padding-left: 14px;
+  border-left: 3px solid #D1FF4D;
+  border-radius: 4px;
+}
+
+
+
+
+.cta-section {
+  background-color: #101010;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.cta-title {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.highlight-iphone {
+  color: #D1FF4D;
+}
+
+.btn-cta {
+  background-color: #D1FF4D;
+  color: #000;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #b1e843;
+  color: #000;
+}
