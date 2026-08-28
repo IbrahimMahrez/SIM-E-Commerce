@@ -1,3 +1,4 @@
+
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
@@ -20,28 +21,21 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
+// Fly.io provides PORT through environment variables
 const port = Number(process.env.PORT) || 3000;
 
-const allowedOrigins = (
-  process.env.CLIENT_ORIGINS ||
-  'http://localhost:5173,http://127.0.0.1:5173'
-)
-  .split(',')
-  .map((origin) => origin.trim())
-  .filter(Boolean);
+/*
+|--------------------------------------------------------------------------
+| CORS
+|--------------------------------------------------------------------------
+| Open temporarily for production testing.
+| After everything works, we can restrict it to the Cloudflare domain.
+|--------------------------------------------------------------------------
+*/
 
 app.use(
   cors({
-    origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      return callback(
-        new Error(`CORS blocked origin: ${origin}`)
-      );
-    },
-
+    origin: true,
     methods: [
       'GET',
       'POST',
@@ -50,21 +44,39 @@ app.use(
       'DELETE',
       'OPTIONS'
     ],
-
     allowedHeaders: [
       'Content-Type',
       'token',
       'Authorization'
-    ]
+    ],
+    credentials: true
   })
 );
 
+/*
+|--------------------------------------------------------------------------
+| Middleware
+|--------------------------------------------------------------------------
+*/
+
 app.use(express.json({ limit: '1mb' }));
+
+/*
+|--------------------------------------------------------------------------
+| Uploads
+|--------------------------------------------------------------------------
+*/
 
 app.use(
   '/uploads',
   express.static(path.join(__dirname, 'uploads'))
 );
+
+/*
+|--------------------------------------------------------------------------
+| Health Check
+|--------------------------------------------------------------------------
+*/
 
 app.get('/health', (_req, res) => {
   res.status(200).json({
@@ -72,6 +84,12 @@ app.get('/health', (_req, res) => {
     message: 'SIM Store API is running'
   });
 });
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+*/
 
 app.use(userRouters);
 app.use(productRouters);
@@ -81,6 +99,12 @@ app.use(wishlistRouters);
 app.use(couponRouters);
 app.use(aiRouters);
 
+/*
+|--------------------------------------------------------------------------
+| 404 Handler
+|--------------------------------------------------------------------------
+*/
+
 app.use((_req, res) => {
   res.status(404).json({
     success: false,
@@ -88,13 +112,34 @@ app.use((_req, res) => {
   });
 });
 
+/*
+|--------------------------------------------------------------------------
+| Error Handler
+|--------------------------------------------------------------------------
+*/
+
 app.use(errorHandler);
 
-// افتح الـ PORT الأول
+/*
+|--------------------------------------------------------------------------
+| Start Server
+|--------------------------------------------------------------------------
+|
+| IMPORTANT:
+| We start listening BEFORE connecting to MongoDB.
+| This allows Fly.io to detect the application port immediately.
+|
+*/
+
 const server = app.listen(port, '0.0.0.0', () => {
   console.log(`SIM Store API running on port ${port}`);
 
-  // بعد فتح الـ PORT اتصل بـ MongoDB
+  /*
+  |--------------------------------------------------------------------------
+  | MongoDB Connection
+  |--------------------------------------------------------------------------
+  */
+
   dbConnection()
     .then(() => {
       console.log('MongoDB connected successfully');
@@ -105,7 +150,12 @@ const server = app.listen(port, '0.0.0.0', () => {
     });
 });
 
-// لو السيرفر نفسه حصل فيه error
+/*
+|--------------------------------------------------------------------------
+| Server Error
+|--------------------------------------------------------------------------
+*/
+
 server.on('error', (error) => {
   console.error('Server error:', error);
 });
